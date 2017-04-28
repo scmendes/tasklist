@@ -1,14 +1,14 @@
 package org.smendes.tasklist;
 
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class TaskListController {
     
     @RequestMapping("/")
     public String index() {
-        return "Hi from Silvio! My task list starts here.";
+    	return "index";
     }
     
 }
