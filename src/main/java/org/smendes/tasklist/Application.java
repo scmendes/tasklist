@@ -31,35 +31,27 @@ public class Application {
 	@Bean
 	public CommandLineRunner demo(TasklistRepository repository) {
 		return (args) -> {
-			// save a couple of customers
-			repository.save(new Tasklist("Jack", "Bauer", null));
-			repository.save(new Tasklist("Chloe", "O'Brian", null));
-			repository.save(new Tasklist("Kim", "Bauer", null));
-			repository.save(new Tasklist("David", "Palmer", null));
-			repository.save(new Tasklist("Michelle", "Dessler", null));
+			// save a couple of tasks
+			repository.save(new Tasklist("daily meeting", "diariamente as 09:15 hrs"));
+			repository.save(new Tasklist("sprint planning", "terça-feira 14:00 as 16:00 hrs"));
+			repository.save(new Tasklist("retrospectiva", "quarta-feira 11:00 as 12:00 hrs"));
+			repository.save(new Tasklist("1:1", "mensalmente"));
 
 			// fetch all customers
-			log.info("Customers found with findAll():");
+			log.info("found with findAll():");
 			log.info("-------------------------------");
-			for (Tasklist customer : repository.findAll()) {
-				log.info(customer.toString());
+			for (Tasklist item : repository.findAll()) {
+				log.info(item.toString());
 			}
 			log.info("");
 
-			// fetch an individual customer by ID
-			Tasklist customer = repository.findOne(1L);
-			log.info("Customer found with findOne(1L):");
+			// fetch an individual by ID
+			Tasklist item = repository.findOne(1L);
+			log.info("Task found with findOne(1L):");
 			log.info("--------------------------------");
-			log.info(customer.toString());
+			log.info(item.toString());
 			log.info("");
 
-			// fetch customers by last name
-			log.info("Customer found with findByLastName('Bauer'):");
-			log.info("--------------------------------------------");
-			for (Tasklist bauer : repository.findByLastName("Bauer")) {
-				log.info(bauer.toString());
-			}
-			log.info("");
 		};
 	}    
 

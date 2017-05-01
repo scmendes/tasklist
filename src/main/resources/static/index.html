@@ -1,8 +1,90 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+ 
+<html ng-app="tasks">
 <head>
-    <title>My task list</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+    <title>Silvio tasklist</title>
+ 
+    <!-- CSS -->
+    <!-- Carregando o bootstrap-->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    <style>
+        html                    { overflow-y:scroll; }
+        body                    { padding-top:50px; }
+        #tasklist               { margin-bottom:30px; }
+        form button             { margin-top: 25px; }
+        form .form-group:first-child { padding-left: 0; }
+    </style>
+ 
+    <!-- JS -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>  
+    <script src="tasklistController.js"></script>
+ 
 </head>
-<body>
+<body ng-controller="mainController">
+    <div class="container">
+ 
+        <div class="jumbotron text-center">
+            <h1>My Tasklist: <span class="label label-info">{{ tasks.length }}</span></h1>
+        </div>
+ 
+        <div id="tasklist">
+            <table class="table table-striped">
+ 
+                <tr>
+                    <th>Id</th>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Done?</th>
+                    <th>Created</th>
+                    <th>Updated</th>
+                    <th>Done</th>
+                    <th>Actions</th>
+                </tr>
+ 
+                <tr ng-repeat="task in tasks">
+                    <td>{{ task.key}}</td>
+                    <td>{{ task.title}}</td>
+                    <td>{{ task.description}}</td>
+                    <td>{{ task.done}}</td>
+                    <td>{{ task.createDate}}</td>
+                    <td>{{ task.editDate}}</td>
+                    <td>{{ task.doneDate}}</td>
+                    <td>
+                        <button type="button" class="btn btn-default" ng-click="edit(task.key)">Edit</button>
+                        <button type="button" class="btn btn-primary" ng-click="remove(task.key)">Remove</button>
+                    </td>
+                </tr>
+ 
+            </table>
+        </div>
+ 
+        <div id="task-form">
+            <hr>
+            <form>
+                <div class="form-group col-md-3">
+                    <label for="titleId">Title</label>
+                    <input type="text" class="form-control" id="titleId" placeholder="Task title" ng-model="taskForm.title" required="required">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="descriptionId">Description</label>
+                    <input type="text" class="form-control" id="descriptionId" placeholder="Task description" ng-model="taskForm.description" required="required">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="doneId">Done?</label>
+                    <input type="checkbox" id="doneId" ng-model="taskForm.done">
+                </div>
+                <div class="form-group col-md-3">
+                    <button type="submit" class="btn btn-primary" ng-click="create()" ng-hide="taskForm.key" >Create</button>
+                    <button type="submit" class="btn btn-primary" ng-click="update()" ng-show="taskForm.key">Update</button>
+                </div>
+            </form>
+        </div>
+ 
+    </div>
+ 
 </body>
 </html>
