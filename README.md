@@ -23,13 +23,17 @@ To do this just edit `application.properties` and choose the configuration that 
 
 ### Running
 
-To build and start the server simply type
-
+To build and start the server simply type from the root directory:
 ```sh
 $ mvn spring-boot:run
 ```
 
-from the root directory.
+or from Eclipse plugins
+```sh
+$ Run >> maven install;
+$ Run >> java application;
+```
+
 
 ### Using
 
