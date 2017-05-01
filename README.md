@@ -30,9 +30,8 @@ $ mvn spring-boot:run
 
 From Eclipse plugins
 ```sh
-$ Run >> maven clean package install;
-$ Run >> java application 
-from the Application.java;
+$ Run >> maven clean package install
+$ Run >> java application (from the Application.java)
 ```
 
 From command line (from the target diretory)
