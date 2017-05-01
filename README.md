@@ -28,16 +28,20 @@ To build and start the server simply type from the root directory:
 $ mvn spring-boot:run
 ```
 
-or from Eclipse plugins
+From Eclipse plugins
 ```sh
-$ Run >> maven install;
-$ Run >> java application;
+$ Run >> maven clean package install;
+$ Run >> java application from the Application.java;
 ```
+
+From command line
+```sh
+$ java -jar task-list-silvio-0.1.0.jar from the target diretory;
 
 
 ### Using
 
-Browse to `localhost:8080` to see the application in action.
+Browse to `http://localhost:8080` to see the application in action.
 
 The H2 database is in memory so rebooting should reset the data.
 
