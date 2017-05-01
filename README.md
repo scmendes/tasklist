@@ -12,7 +12,14 @@ It offers Create, Read, Update and Delete operations over the task item.
 
 ### Configuration
 
-First you need to edit `application.properties` and choose the database option.
+If you wanna change some default configuration it is super simple.
+To do this just edit `application.properties` and choose the configuration that fits.
+
+### Frameworks
+- Spring boot
+- Spring data JPA
+- Spring boot data rest
+- AngularJS
 
 ### Running
 
